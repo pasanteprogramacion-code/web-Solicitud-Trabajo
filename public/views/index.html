@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conocé las áreas de trabajo de Romero Panificados y elegí dónde te gustaría desarrollarte.">
+    <title>Trabajá con nosotros | Romero Panificados</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <header class="cabecera">
+        <a href="./index.html" aria-label="Romero Panificados, inicio">
+            <img class="logo" src="../assets/img/romero-logo.png" alt="Romero Panificados">
+        </a>
+        <a class="enlace-empresa" href="https://www.romeropanificados.com.ar/">Conocé la empresa</a>
+    </header>
+    <main>
+        <section class="presentacion">
+            <div class="presentacion-contenido">
+                <h1 id="titulo">Tu próximo paso<br>puede ser con nosotros.</h1>
+                <p class="bajada">En Romero Panificados recibimos perfiles para las distintas áreas de la empresa. La información registrada será considerada en futuros procesos de selección, según los requisitos de cada puesto.</p>
+                <a class="boton boton-verde" href="#puestos">Explorar puestos</a>
+            </div>
+            <aside class="pasos" aria-label="Cómo postularte">
+                <p class="pasos-titulo">TRES SIMPLES PASOS</p>
+                <ol>
+                    <li>
+                        <span class="numero">01</span>
+                        <div>
+                            <strong>Elegí un puesto</strong>
+                            <p>Busca el puesto que deseas conseguir.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="numero">02</span>
+                        <div>
+                            <strong>Verificá tu correo</strong>
+                            <p>Es tu acceso para volver cuando quieras.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="numero">03</span>
+                        <div>
+                            <strong>Compartí tu perfil</strong>
+                            <p>Completá tus datos y adjuntá tu CV.</p>
+                        </div>
+                    </li>
+                </ol>
+            </aside>
+        </section>
+        <section id="puestos" class="seccion-puestos" aria-labelledby="titulo-puestos">
+
+            <div class="encabezado-seccion">
+                <div>
+                    <h2 id="titulo-puestos">Áreas y puestos de trabajo</h2>
+                </div>
+                <span id="cantidad" class="cantidad"></span>
+            </div>
+        
+            <div id="lista-puestos" class="grilla"></div>
+            
+            <noscript>
+                <p>Activá JavaScript para ver los puestos y seleccionar uno.</p>
+            </noscript>
+        </section>
+    </main>
+    <footer>
+        <span>Romero Panificados</span>
+        <span>Brandsen, Buenos Aires</span>
+    </footer>
+
+    <dialog id="modal-puesto" aria-labelledby="titulo-modal" aria-describedby="descripcion-modal">
+        <div class="modal-contenido">
+            <p class="etiqueta">TU SELECCIÓN</p>
+            <h2 id="titulo-modal"></h2>
+            <p id="descripcion-modal"></p>
+            <p class="aviso"><strong>Estamos construyendo este recorrido.</strong> El próximo paso será verificar tu correo y completar el formulario. Todavía no se envió ninguna postulación.</p>
+            <form method="dialog"><button class="boton boton-neutro">Volver a los puestos</button></form>
+        </div>
+    </dialog>
+  <script src="../js/puestos.js"></script>
+</body>
+</html>
