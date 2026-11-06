@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('node:path');
 const pool = require('./src/config/db');
+const requerirSesion = require('./src/middlewares/autenticacion');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json({ limit: '100kb' }));
 
 app.use('/api/auth', require('./src/routes/auth.routes'));
+
+app.use('/api/perfil', require('./src/routes/perfil.routes'));
+
+app.get('/api/sesion', requerirSesion, (req, res) => {
+    res.json({usuario: req.usuario});
+});
 
 app.use(express.urlencoded({ extended: false, limit: '100kb'}));
 
