@@ -416,3 +416,18 @@ dialog::backdrop {
 #estado-acceso:empty {
   margin: 0;
 }
+
+#estado-acceso:not(:empty) {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--dorado);
+  border-radius: 0 6px 6px 0;
+  background: var(--ambar-fondo);
+  color: var(--ambar-texto);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+#estado-acceso:not(:empty) ~ form:not([hidden]) {
+  margin-top: 12px;
+}

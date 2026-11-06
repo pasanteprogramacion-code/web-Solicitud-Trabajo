@@ -38,9 +38,19 @@ async function procesar(evento) {
         if (version !== versionAcceso) return;
         mensaje.textContent = datos.mensaje;
         if (respuesta.ok) {
+            
+            if (verificando) {
+                const destino = new URL('/views/formulario.html', window.location.origin);
+                const puestoElegido = new URLSearchParams(window.location.search).get('puesto');
+                
+                if (puestoElegido) { destino.searchParams.set('puesto', puestoElegido); }
+                window.location.assign(destino);
+                return;
+            }
+            
             pedir.hidden = true;
-            validar.hidden = verificando;
-            if (!verificando) campoCodigo.focus();
+            validar.hidden = false;
+            campoCodigo.focus();
         }
     } catch {
         if (version === versionAcceso) mensaje.textContent = 'No se pudo contactar con el servidor.';

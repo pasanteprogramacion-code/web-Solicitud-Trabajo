@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Perfil del postulante | Romero Panificados</title>
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/formulario.css">
+    </head>
+    <body>
+        <header class="cabecera">
+            <a href="/" aria-label="Romero Panificados, inicio">
+                <img class="logo" src="/assets/img/romero-logo.png" alt="Romero Panificados">
+            </a>
+            <a class="enlace-empresa" href="/#puestos">Volver a los puestos</a>
+        </header>
+        <main class="pagina-perfil">
+            <h1 class="perfil-titulo">Perfil del postulante</h1>
+            <p id="puesto-elegido" class="perfil-puesto"></p>
+            <p id="estado-perfil" role="status">Cargando perfil…</p>
+            
+            <form id="form-perfil" class="perfil-ficha" hidden>
+                <h2>Datos personales</h2>
+                
+                <div class="campos-perfil">
+                    <label>
+                        Nombre
+                        <input name="nombre" autocomplete="given-name" maxlength="100" required>
+                    </label>
+
+                    <label>
+                        Apellido
+                        <input name="apellido" autocomplete="family-name" maxlength="100" required>
+                    </label>
+
+                    <label>
+                        DNI
+                        <input name="dni" inputmode="numeric" maxlength="20" required>
+                    </label>
+
+                    <label>
+                        Teléfono
+                        <input name="telefono" type="tel" autocomplete="tel" maxlength="40" required>
+                    </label>
+
+                    <label>
+                        Localidad
+                        <input name="localidad" autocomplete="address-level2" maxlength="120" required>
+                    </label>
+
+                    <label>
+                        Correo verificado
+                        <input id="correo-verificado" type="email" readonly>
+                    </label>
+                </div>
+                
+                <h2>Formación y experiencia</h2>
+                
+                <label>
+                    Estudios
+                    <textarea name="estudios" rows="3" maxlength="3000" placeholder="Por ejemplo: secundario técnico en curso." required></textarea>
+                </label>
+                
+                <label>
+                    Experiencia laboral (opcional)
+                    <textarea name="experiencia" rows="3" maxlength="3000" placeholder="Indicá el puesto, las tareas y el período trabajado."></textarea>
+                </label>
+                
+                <label>
+                    Disponibilidad horaria
+                    <input name="disponibilidad" maxlength="200" placeholder="Por ejemplo: turno mañana o jornada completa." required>
+                </label>
+                
+                <button id="guardar-perfil" class="boton boton-verde" type="submit"> Guardar perfil </button>
+                <p id="resultado-guardado" role="status"></p>
+            </form>
+        </main>
+        <script src="/js/catalogo-puestos.js" defer></script>
+        <script src="/js/formulario.js" defer></script>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+.pagina-perfil {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    padding: 24px 20px;
+}
+
+.pagina-perfil h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+#puesto-elegido {
+    color: var(--vino);
+    font-weight: 700;
+    margin: 12px 0 4px;
+}
+
+#estado-perfil {
+    color: var(--suave);
+    margin: 0 0 24px;
+}
+
+#form-perfil:not([hidden]) {
+    display: grid;
+    gap: 18px;
+    padding: clamp(18px, 4vw, 32px);
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+}
+
+#form-perfil h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.campos-perfil {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--borde);
+}
+
+#form-perfil label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#form-perfil input,
+#form-perfil textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #bdb8ad;
+    border-radius: 8px;
+    color: var(--texto);
+    background: white;
+    font: 400 1rem/1.4 Arial, sans-serif;
+}
+
+#form-perfil textarea {
+    resize: vertical;
+}
+
+#form-perfil input:focus,
+#form-perfil textarea:focus {
+    outline: 2px solid var(--verde);
+    outline-offset: 2px;
+}
+
+#correo-verificado[readonly] {
+    background: var(--fondo);
+    color: var(--suave);
+}
+
+#guardar-perfil {
+    justify-self: start;
+}
+
+#resultado-guardado {
+    margin: 0;
+    font-weight: 600;
+}
+
+#resultado-guardado:empty {
+    display: none;
+}
+
+#resultado-guardado[data-tipo="exito"] {
+    color: var(--verde);
+}
+
+#resultado-guardado[data-tipo="error"] {
+    color: var(--rojo);
+}
+
+@media (max-width: 620px) {
+    .campos-perfil { grid-template-columns: 1fr;}
+    #guardar-perfil {width: 100%;}
+}
+
+.perfil-titulo {
+    margin-bottom: 0.65rem;
+    color: #292820;
+    font-size: clamp(2rem, 4vw, 2.65rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.perfil-puesto {
+    width: fit-content;
+    margin: 0 0 0.75rem;
+    padding-left: 0.7rem;
+    border-left: 3px solid #d6a642;
+    color: #514632;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.perfil-ficha {
+    box-sizing: border-box;
+    padding: clamp(1.25rem, 3.5vw, 2.5rem);
+    background: #fff;
+    border: 1px solid #e2dcd1;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgb(48 39 21 / 5%);
+}
+
+.perfil-ficha :is(h2, legend) {
+    margin-bottom: 1rem;
+    color: #302e27;
+    font-size: 1.2rem;
+    font-weight: 650;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.perfil-ficha label {
+    color: #403e36;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.perfil-ficha :is(input, textarea, select) {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #aaa69b;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #292820;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.perfil-ficha textarea {
+    min-height: 5.5rem;
+    resize: vertical;
+}
+
+.perfil-ficha input[readonly] {
+    background-color: #f5f3ee;
+    border-color: #d6d1c7;
+    color: #565248;
+}
+
+.perfil-ficha :is(input, textarea, select, button):focus-visible {
+    outline: 2px solid #246549;
+    outline-offset: 2px;
+}
+
+.perfil-ficha button[type="submit"] {
+    min-height: 46px;
+    padding: 0.75rem 1.4rem;
+    border: 0;
+    border-radius: 8px;
+    background-color: #226347;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+}
+
+.perfil-ficha button[type="submit"]:hover:enabled {
+    background-color: #194d37;
+}
+
+.perfil-ficha button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+@media (max-width: 600px) {
+    .perfil-ficha button[type="submit"] {width: 100%;}
+}
