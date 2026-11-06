@@ -74,10 +74,24 @@
             <p class="etiqueta">TU SELECCIÓN</p>
             <h2 id="titulo-modal"></h2>
             <p id="descripcion-modal"></p>
-            <p class="aviso"><strong>Estamos construyendo este recorrido.</strong> El próximo paso será verificar tu correo y completar el formulario. Todavía no se envió ninguna postulación.</p>
+
+            <form id="pedir-codigo">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" autocomplete="email" maxlength="254" required>
+                <button class="boton boton-verde">Enviar código</button>
+            </form>
+            
+            <form id="validar-codigo" hidden>
+                <label for="codigo">Código de seis dígitos</label>
+                <input id="codigo" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+                <button class="boton boton-verde">Verificar código</button>
+                <button class="boton boton-neutro" type="button" id="volver-correo">Cambiar correo o pedir otro código</button>
+            </form>
+            <p id="estado-acceso" role="status"></p>
             <form method="dialog"><button class="boton boton-neutro">Volver a los puestos</button></form>
         </div>
     </dialog>
   <script src="../js/puestos.js"></script>
+  <script src="../js/acceso.js"></script>
 </body>
 </html>

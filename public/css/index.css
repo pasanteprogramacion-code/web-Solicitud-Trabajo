@@ -368,3 +368,51 @@ dialog::backdrop {
     transition:none;
   }
 }
+
+#modal-puesto form:not([hidden]) {
+  display: grid;
+  gap: 12px;
+}
+
+#modal-puesto label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+#modal-puesto input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #bdb8ad;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--texto);
+  font: inherit;
+  font-size: 1rem;
+}
+
+#modal-puesto input:focus {
+  border-color: var(--verde);
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}
+
+#modal-puesto #codigo {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.22em;
+}
+
+#modal-puesto .boton:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+#estado-acceso:empty {
+  margin: 0;
+}
