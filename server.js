@@ -14,6 +14,8 @@ app.use('/api/auth', require('./src/routes/auth.routes'));
 
 app.use('/api/perfil', require('./src/routes/perfil.routes'));
 
+app.use('/api/postulaciones', require('./src/routes/postulaciones.routes'));
+
 app.get('/api/sesion', requerirSesion, (req, res) => {
     res.json({usuario: req.usuario});
 });

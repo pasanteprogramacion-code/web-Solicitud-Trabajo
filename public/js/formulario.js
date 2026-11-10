@@ -43,7 +43,7 @@ formulario.addEventListener('submit', async (evento) => {
 
     const perfil = Object.fromEntries(new FormData(formulario));
     botonGuardar.disabled = true;
-    botonGuardar.textContent = 'Guardando…';
+    botonGuardar.textContent = 'Enviando…';
     resultado.textContent = '';
     delete resultado.dataset.tipo;
 
@@ -64,14 +64,28 @@ formulario.addEventListener('submit', async (evento) => {
             return;
         }
 
+        const respuestaPostulacion = await fetch('/api/postulaciones', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ puesto_id: puesto.id })
+        });
+        
+        const datosPostulacion = await respuestaPostulacion.json();
+        
+        if (!respuestaPostulacion.ok) {
+            resultado.dataset.tipo = 'error';
+            resultado.textContent = datosPostulacion.mensaje || 'El perfil se guardó, pero no se pudo registrar la postulación.';
+            return;
+        }
+        
         resultado.dataset.tipo = 'exito';
-        resultado.textContent = 'Perfil guardado correctamente.';
+        resultado.textContent = 'Tu postulación se registró correctamente.';
     } catch {
         resultado.dataset.tipo = 'error';
         resultado.textContent = 'No pudimos confirmar el guardado. Intentá nuevamente.';
     } finally {
         botonGuardar.disabled = false;
-        botonGuardar.textContent = 'Guardar perfil';
+        botonGuardar.textContent = 'Enviar postulación';
     }
 });
 

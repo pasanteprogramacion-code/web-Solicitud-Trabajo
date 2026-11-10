@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../config/db');
 const requerirSesion = require('../middlewares/autenticacion');
 const puestos = require('../../public/js/catalogo-puestos');
+const { enviarADestino } = require('../services/destino-postulaciones.service');
 
 const router = express.Router();
 
@@ -48,12 +49,37 @@ router.post('/', async (req, res, next) => {
                 datos_enviados
             )
             VALUES ($1, $2, $3::jsonb)
-            RETURNING id, creado_en
+            RETURNING id, puesto_id, datos_enviados, creado_en
         `, [
             req.usuario.id,
             puestoId,
             JSON.stringify(datosEnviados)
         ]);
+
+        const postulacion = resultado.rows[0];
+        
+        let estadoEntrega = 'pendiente';
+        
+        try {
+            estadoEntrega = await enviarADestino(postulacion);
+        } catch (error) {
+            estadoEntrega = 'error';
+            console.error( 'Falló la entrega externa:', error.message);
+        }
+        
+        if (estadoEntrega !== 'pendiente') {
+            try {
+                await pool.query(`
+                    UPDATE postulaciones SET estado_entrega = $1 WHERE id = $2
+                    `, [
+                        estadoEntrega,
+                        postulacion.id
+                    ]
+                );
+            } catch (error) {
+                console.error('No se pudo actualizar el estado de entrega:', error.code);
+            }
+        }
 
         res.status(201).json({
             mensaje: 'Tu postulación quedó registrada correctamente.',
