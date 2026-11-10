@@ -72,3 +72,7 @@ const puestos = [
     descripcion: 'Registra información en los sistemas de gestión, organiza documentación y realiza tareas de apoyo administrativo a los distintos sectores.'
   }
 ];
+
+if (typeof module !== 'undefined') {
+    module.exports = puestos;
+}
