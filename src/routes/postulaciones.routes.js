@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../config/db');
 const requerirSesion = require('../middlewares/autenticacion');
 const puestos = require('../../public/js/catalogo-puestos');
-const { enviarADestino } = require('../services/destino-postulaciones.service');
+const { enviarADestino } = require('../services/destino.postulaciones.service');
 
 const router = express.Router();
 
